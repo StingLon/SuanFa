@@ -1,0 +1,61 @@
+选择排序
+
+	public static void xuanzepaixun(int [] arrys){
+		int tem=0;
+		int pos;
+		for(int x=0;x<arrys.length-1;x++){
+			pos=0;
+			for(int y=0;y<arrys.length-x;y++){
+				if(arrys[y]>arrys[pos]){
+					pos=y;
+				}
+			}
+			tem=arrys[pos];
+			arrys[pos]=arrys[arrys.length-x-1];
+			arrys[arrys.length-x-1]=tem;			
+		}		
+	
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
