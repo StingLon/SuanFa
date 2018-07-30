@@ -1,15 +1,73 @@
 冒泡排序
 
+它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。
+
+i从0开始，i与i+1比较，如果i>i+1，那么就互换
+i不断增加，直到i<n-1（n是数组元素的个数，n-1是数组已经最后一个元素） ，一趟下来，可以让数组元素中最大值排在数组的最后面
 
 
 
+package SuanFa;
+//冒泡
+public class maopao {
+
+	public static void main(String[] args) {
+		int[] ar={8,4,6,7,2,9};
+		print(ar);
+		maopaopaixun(ar);
+		System.out.println();	
+		print(ar);
+	}
+  
+  
+//冒泡排序
+	public static void maopaopaixun(int [] arrys){
+		int tem;
+		for(int x=0;x<arrys.length-1;x++){
+			for(int y=0;y<arrys.length-x-1;y++){
+				if(arrys[y]>arrys[y+1]){
+					tem=arrys[y];
+					arrys[y]=arrys[y+1];
+					arrys[y+1]=tem;			
+				}
+			}
+		}			
+	}
+  
+  //打印
+	public static void print(int[] arr){
+		for(int x=0;x<arr.length;x++){
+			if(x!=arr.length-1){
+				System.out.print(arr[x]+",");
+			}else{
+				System.out.print(arr[x]);
+			}
+		}		
+	}
 
 
+}
 
 
+优化：如果在某躺排序中没有发生交换位置，那么我们可以认为该数组已经排好序了
 
-
-
+	public static void maopaopaixun(int [] arrys){
+		int tem;
+    int change=0        // //记录是否发生了置换， 0 表示没有发生置换、 1 表示发生了置换
+		for(int x=0;x<arrys.length-1;x++){
+			for(int y=0;y<arrys.length-x-1;y++){
+				if(arrys[y]>arrys[y+1]){
+					tem=arrys[y];
+					arrys[y]=arrys[y+1];
+					arrys[y+1]=tem;			
+          change=1;
+				}
+			}
+    //如果比较完一趟没有发生置换，那么说明已经排好序了，不需要再执行下去了
+     if (change == 0) {
+          break; 
+		}			
+	}
 
 
 
